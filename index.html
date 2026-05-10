@@ -39,8 +39,10 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:24px 5vw;
-      background:linear-gradient(to bottom,rgba(0,0,0,.82),rgba(0,0,0,0));
+      padding:22px 5vw;
+      background:rgba(8,8,7,.48);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(245,240,232,.06);
     }
 
     .logo{
@@ -71,6 +73,11 @@
       border:1px solid rgba(200,166,103,.55);
       padding:12px 18px;
       color:var(--gold);
+      transition:.35s ease;
+    }
+
+    .nav-cta:hover{
+      background:rgba(200,166,103,.12);
     }
 
     .hero{
@@ -81,7 +88,7 @@
       align-items:center;
       padding:120px 5vw 70px;
       gap:60px;
-      background:radial-gradient(circle at 75% 20%,rgba(200,166,103,.16),transparent 38%),var(--bg);
+      background:radial-gradient(circle at 75% 20%,rgba(200,166,103,.14),transparent 38%),var(--bg);
     }
 
     .hero-copy{
@@ -100,8 +107,8 @@
     h1{
       font-family:Georgia,'Times New Roman',serif;
       font-weight:400;
-      font-size:clamp(52px,7vw,104px);
-      line-height:.93;
+      font-size:clamp(44px,5.5vw,82px);
+      line-height:.96;
       margin:0 0 30px;
     }
 
@@ -129,6 +136,12 @@
       font-size:17px;
       padding-bottom:8px;
       border-bottom:1px solid var(--gold);
+      transition:.35s ease;
+    }
+
+    .text-cta:hover{
+      color:var(--gold);
+      transform:translateX(4px);
     }
 
     .video-card{
@@ -148,7 +161,7 @@
       min-height:650px;
       object-fit:cover;
       display:block;
-      filter:brightness(.78) contrast(1.06);
+      filter:brightness(.58) contrast(1.08);
     }
 
     .play-note{
@@ -197,13 +210,20 @@
       position:relative;
       background-size:cover;
       background-position:center;
+      transition:transform .65s ease, border-color .65s ease, filter .65s ease;
+    }
+
+    .project:hover{
+      transform:scale(1.025);
+      border-color:rgba(200,166,103,.35);
+      filter:brightness(1.08);
     }
 
     .project:after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,.75),transparent 62%);
+      background:linear-gradient(to top,rgba(0,0,0,.78),transparent 62%);
     }
 
     .project-name{
@@ -242,6 +262,12 @@
       border-radius:20px;
       padding:34px 26px;
       min-height:190px;
+      transition:.45s ease;
+    }
+
+    .feature:hover{
+      border-color:rgba(200,166,103,.35);
+      background:rgba(255,255,255,.025);
     }
 
     .feature b{
@@ -332,6 +358,19 @@
       border-bottom:1px solid var(--gold);
       cursor:pointer;
       margin-top:10px;
+      transition:.35s ease;
+    }
+
+    button:hover{
+      color:var(--gold);
+      transform:translateX(4px);
+    }
+
+    .form-note{
+      margin-top:22px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
     }
 
     .trust{
@@ -368,12 +407,22 @@
     }
 
     @media(max-width:900px){
+      .nav{
+        padding:18px 5vw;
+      }
+
       .nav-links,.nav-cta{display:none}
 
       .hero{
         grid-template-columns:1fr;
-        padding-top:110px;
+        min-height:auto;
+        padding-top:108px;
+        padding-bottom:54px;
         gap:34px;
+      }
+
+      .lead{
+        margin-bottom:30px;
       }
 
       .video-card,.video-card video{
@@ -385,7 +434,7 @@
         grid-template-columns:1fr;
       }
 
-      section{padding:78px 5vw}
+      section{padding:60px 5vw}
 
       .section-head{display:block}
 
@@ -455,10 +504,10 @@
       </div>
 
       <div class="video-card" aria-label="Video ADEZO">
-        <video controls playsinline preload="metadata" poster="assets/adezo-frame-1-1.jpg">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/adezo-frame-1-1.jpg">
           <source src="assets/adezo-video-1.mp4" type="video/mp4">
         </video>
-        <div class="play-note">Video ADEZO · kliknij play</div>
+        <div class="play-note">Video ADEZO</div>
       </div>
     </header>
 
@@ -595,6 +644,10 @@
           </select>
 
           <button type="button">Umów konsultację premium →</button>
+
+          <div class="form-note">
+            Projekty ADEZO realizujemy indywidualnie. Orientacyjny budżet wejścia premium: od 15 000 PLN.
+          </div>
         </form>
 
       </div>
