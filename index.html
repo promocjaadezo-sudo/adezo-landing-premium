@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADEZO — Projekt wejścia premium</title>
+  <meta name="description" content="Ekskluzywne drzwi wejściowe ADEZO projektowane pod architekturę domu. Umów konsultację premium." />
+  <style>
+    :root {
+      --bg:#0b0b0a; --bg-soft:#151311; --text:#f5f0e8; --muted:#b9afa1;
+      --gold:#c8a667; --line:rgba(245,240,232,.16);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;letter-spacing:-.02em}
+    a{color:inherit;text-decoration:none}
+    .page{overflow:hidden}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:24px 5vw;background:linear-gradient(to bottom,rgba(0,0,0,.82),rgba(0,0,0,0))}
+    .logo{font-size:23px;letter-spacing:.18em;font-weight:600;line-height:1}
+    .logo small{display:block;font-size:9px;letter-spacing:.26em;color:var(--muted);margin-top:6px}
+    .nav-links{display:flex;gap:34px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    .nav-cta{border:1px solid rgba(200,166,103,.55);padding:12px 18px;color:var(--gold)}
+    .hero{min-height:100vh;position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;padding:120px 5vw 70px;gap:60px;background:radial-gradient(circle at 75% 20%,rgba(200,166,103,.16),transparent 38%),var(--bg)}
+    .hero-copy{max-width:760px;z-index:2}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.22em;font-size:12px;margin-bottom:26px}
+    h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(52px,7vw,104px);line-height:.93;margin:0 0 30px}
+    .lead{font-size:clamp(18px,2vw,24px);line-height:1.45;color:var(--muted);max-width:590px;margin-bottom:42px}
+    .text-cta{display:inline-flex;align-items:center;gap:14px;color:var(--text);font-size:17px;padding-bottom:8px;border-bottom:1px solid var(--gold)}
+    .video-card{position:relative;z-index:2;border:1px solid var(--line);border-radius:28px;min-height:650px;overflow:hidden;background:#111;box-shadow:0 40px 120px rgba(0,0,0,.45)}
+    .video-card video{width:100%;height:100%;min-height:650px;object-fit:cover;display:block;filter:brightness(.78) contrast(1.06)}
+    .play-note{position:absolute;left:30px;bottom:30px;color:var(--text);font-size:13px;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.36);border:1px solid rgba(245,240,232,.18);border-radius:999px;padding:13px 18px;backdrop-filter:blur(12px)}
+    section{padding:110px 5vw}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:44px}
+    h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(36px,4vw,68px);line-height:1;margin:0}
+    .section-desc{color:var(--muted);max-width:430px;line-height:1.6;font-size:16px}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .project{min-height:460px;border-radius:24px;overflow:hidden;border:1px solid var(--line);position:relative;background-size:cover;background-position:center}
+    .project:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 62%)}
+    .p1{background-image:url('assets/adezo-frame-1-2.jpg')}
+    .p2{background-image:url('assets/adezo-frame-1-3.jpg')}
+    .p3{background-image:url('assets/adezo-frame-1-4.jpg')}
+    .project-name{position:absolute;z-index:2;left:26px;bottom:24px}
+    .project-name strong{display:block;font-family:Georgia,serif;font-size:30px;font-weight:400}
+    .project-name small{color:var(--muted)}
+    .brand{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:50px}
+    .feature{border:1px solid var(--line);border-radius:20px;padding:34px 26px;min-height:190px}
+    .feature b{display:block;color:var(--gold);font-size:34px;margin-bottom:18px;font-family:Georgia,serif;font-weight:400}
+    .feature p{color:var(--muted);line-height:1.55;margin:0}
+    .process{display:grid;grid-template-columns:.8fr 1.2fr;gap:22px;align-items:stretch}
+    .process-text{border:1px solid var(--line);border-radius:24px;padding:42px;background:rgba(255,255,255,.025)}
+    .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .process-grid img{width:100%;height:420px;object-fit:cover;border-radius:20px;border:1px solid var(--line);filter:brightness(.86)}
+    .form-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+    form{border:1px solid var(--line);border-radius:26px;padding:34px;background:rgba(255,255,255,.025)}
+    label{display:block;color:var(--muted);font-size:13px;margin:0 0 8px}
+    input,select{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(245,240,232,.28);padding:14px 0 16px;color:var(--text);font-size:17px;outline:none;margin-bottom:24px}
+    select option{color:#111}
+    button{background:transparent;border:none;color:var(--text);font-size:17px;padding:0 0 8px;border-bottom:1px solid var(--gold);cursor:pointer;margin-top:10px}
+    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 5vw 70px}
+    .trust div{border-top:1px solid var(--line);padding-top:24px;color:var(--muted);line-height:1.5}
+    .trust strong{display:block;color:var(--text);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+    .sticky-mobile{display:none}
+    footer{padding:46px 5vw;border-top:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between}
+    @media(max-width:900px){
+      .nav-links,.nav-cta{display:none}
+      .hero{grid-template-columns:1fr;padding-top:110px;gap:34px}
+      .video-card,.video-card video{min-height:420px;border-radius:22px}
+      .projects,.features,.form-wrap,.process,.trust{grid-template-columns:1fr}
+      section{padding:78px 5vw}
+      .section-head{display:block}
+      .section-desc{margin-top:20px}
+      .project{min-height:390px}
+      .process-grid{grid-template-columns:1fr}
+      .process-grid img{height:330px}
+      footer{padding-bottom:92px;display:block}
+      .sticky-mobile{display:flex;position:fixed;left:14px;right:14px;bottom:14px;z-index:40;justify-content:center;padding:15px 18px;border-radius:999px;background:rgba(15,13,11,.86);backdrop-filter:blur(16px);border:1px solid rgba(200,166,103,.44);color:var(--text)}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="logo">ADEZO<small>EXCLUSIVE DOORS</small></div>
+      <div class="nav-links">
+        <a href="#realizacje">Realizacje</a>
+        <a href="#marka">Marka</a>
+        <a href="#proces">Proces</a>
+        <a href="#kontakt">Konsultacja</a>
+      </div>
+      <a href="#kontakt" class="nav-cta">Umów konsultację</a>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Drzwi wejściowe premium</div>
+        <h1>Ekskluzywne drzwi wejściowe</h1>
+        <p class="lead">Tworzymy wejścia premium dopasowane do architektury domu, stylu inwestycji i emocji pierwszego wrażenia.</p>
+        <a href="#kontakt" class="text-cta">Umów konsultację premium →</a>
+      </div>
+      <div class="video-card" aria-label="Video ADEZO">
+        <video controls playsinline preload='metadata' poster='assets/adezo-frame-1-1.jpg'><source src='assets/adezo-video-1.mp4' type='video/mp4'></video>
+        <div class="play-note">Video ADEZO · kliknij play</div>
+      </div>
+    </header>
+
+    <section id="realizacje">
+      <div class="section-head">
+        <h2>Stworzone dla wymagających.</h2>
+        <p class="section-desc">Wybrane realizacje ADEZO pokazujące nowoczesną architekturę, premium detal i pierwsze wrażenie budowane przez wejście do domu.</p>
+      </div>
+      <div class="projects">
+        <div class="project p1"><div class="project-name"><strong>Tirana</strong><small>model premium</small></div></div>
+        <div class="project p2"><div class="project-name"><strong>Astana</strong><small>ciepło drewna</small></div></div>
+        <div class="project p3"><div class="project-name"><strong>Valetta</strong><small>elegancja detalu</small></div></div>
+      </div>
+    </section>
+
+    <section class="brand" id="marka">
+      <div class="section-head">
+        <h2>Doświadczenie. Technologia. Pasja.</h2>
+        <p class="section-desc">ADEZO to połączenie doświadczenia stolarskiego, produkcji CNC, montażu i indywidualnego projektu pod konkretny dom.</p>
+      </div>
+      <div class="features">
+        <div class="feature"><b>30</b><p>lat doświadczenia w produkcji drzwi drewnianych premium.</p></div>
+        <div class="feature"><b>CNC</b><p>precyzyjna produkcja i powtarzalność detalu.</p></div>
+        <div class="feature"><b>100%</b><p>indywidualny projekt pod inwestycję i architekturę.</p></div>
+        <div class="feature"><b>6–8</b><p>tygodni standardowego czasu realizacji projektu.</p></div>
+      </div>
+    </section>
+
+    <section id="proces">
+      <div class="process">
+        <div class="process-text">
+          <div class="eyebrow">Proces tworzenia</div>
+          <h2>Zobacz jak powstają drzwi ADEZO.</h2>
+          <p class="section-desc">Detal drewna, praca rzemieślnicza, technologia i montaż — to właśnie buduje zaufanie do marki premium.</p>
+          <a href="#kontakt" class="text-cta">Wyślij projekt domu →</a>
+        </div>
+        <div class="process-grid">
+          <img src="assets/adezo-frame-2-1.jpg" alt="Proces ADEZO">
+          <img src="assets/adezo-frame-2-2.jpg" alt="Detal drzwi ADEZO">
+          <img src="assets/adezo-frame-2-3.jpg" alt="Montaż ADEZO">
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="form-wrap">
+        <div>
+          <div class="eyebrow">Konsultacja premium</div>
+          <h2>Porozmawiajmy o Twoim projekcie.</h2>
+          <p class="lead">Wyślij projekt domu lub zostaw kontakt. Doradca ADEZO pomoże dobrać styl, materiały i kierunek projektu wejścia premium.</p>
+        </div>
+        <form>
+          <label>Imię</label>
+          <input type="text" placeholder="Jan" />
+          <label>Telefon</label>
+          <input type="tel" placeholder="+48 ___ ___ ___" />
+          <label>Miasto inwestycji</label>
+          <input type="text" placeholder="np. Warszawa" />
+          <label>Etap budowy</label>
+          <select><option>Wybierz etap</option><option>Projekt domu</option><option>Stan surowy</option><option>Przed montażem</option><option>Wymiana drzwi</option></select>
+          <label>Budżet</label>
+          <select><option>Wybierz budżet</option><option>15–20 tys. zł</option><option>20–30 tys. zł</option><option>30–50 tys. zł</option><option>50 tys. zł+</option></select>
+          <button type="button">Umów konsultację premium →</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div><strong>Polska produkcja i montaż</strong>Tworzymy i montujemy w Polsce.</div>
+      <div><strong>Gwarancja jakości</strong>Pewność na lata i dopracowany detal.</div>
+      <div><strong>Kompleksowa obsługa</strong>Od projektu po montaż.</div>
+    </div>
+
+    <footer>
+      <div>ADEZO</div>
+      <div>Premium entrance design · Polska</div>
+    </footer>
+
+    <a class="sticky-mobile" href="#kontakt">📞 Konsultacja premium</a>
+  </div>
+</body>
+</html>
