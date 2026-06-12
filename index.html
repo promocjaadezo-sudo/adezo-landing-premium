@@ -723,7 +723,7 @@
       </div>
 
       <div class="video-card" aria-label="Video ADEZO">
-        <video autoplay muted loop playsinline preload="auto" poster="assets/Tirana.jpg" id="heroVideo">
+        <video autoplay muted playsinline preload="auto" poster="assets/Tirana.jpg" id="heroVideo">
           <source src="assets/adezo-video-1.mp4" type="video/mp4">
         </video>
         <button class="sound-btn" id="soundBtn" type="button">
@@ -1010,6 +1010,7 @@
     if (heroVideo && soundBtn) {
       soundBtn.addEventListener('click', async function() {
         try {
+          heroVideo.loop = false;
           heroVideo.muted = false;
           heroVideo.currentTime = 0;
           await heroVideo.play();
