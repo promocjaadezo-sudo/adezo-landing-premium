@@ -1,1 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>ADEZO — Tradycyjne i nowoczesne drzwi drewniane premium</title>
+  <meta name="description" content="Tradycyjne i nowoczesne drzwi drewniane premium ADEZO projektowane pod architekturę domu. Wypełnij formularz lub zadzwoń do eksperta." />
+
+  <style>
+    :root {
+      --bg:#0b0b0a;
+      --bg-soft:#151311;
+      --text:#f5f0e8;
+      --muted:#b9afa1;
+      --gold:#c8a667;
+      --line:rgba(245,240,232,.16);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,Arial,sans-serif;
+      letter-spacing:-.02em;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .page{overflow:hidden}
+
+    .nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:20;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 5vw;
+      background:rgba(8,8,7,.48);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(245,240,232,.06);
+    }
+
+    .logo{
+      font-size:23px;
+      letter-spacing:.18em;
+      font-weight:600;
+      line-height:1;
+    }
+
+    .logo small{
+      display:block;
+      font-size:9px;
+      letter-spacing:.26em;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:34px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .nav-phone{
+      color:var(--text);
+      font-size:15px;
+      letter-spacing:.04em;
+      white-space:nowrap;
+    }
+
+    .nav-cta{
+      border:1px solid rgba(200,166,103,.55);
+      padding:12px 18px;
+      color:var(--gold);
+      transition:.35s ease;
+    }
+
+    .nav-cta:hover{
+      background:rgba(200,166,103,.12);
+    }
+
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:center;
+      padding:120px 5vw 70px;
+      gap:60px;
+      background:radial-gradient(circle at 75% 20%,rgba(200,166,103,.14),transparent 38%),var(--bg);
+    }
+
+    .hero-copy{
+      max-width:760px;
+      z-index:2;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:12px;
+      margin-bottom:26px;
+    }
+
+    h1{
+      font-family:Georgia,'Times New Roman',serif;
+      font-weight:400;
+      font-size:clamp(44px,5.5vw,82px);
+      line-height:.96;
+      margin:0 0 30px;
+    }
+
+    h2{
+      font-family:Georgia,'Times New Roman',serif;
+      font-weight:400;
+      font-size:clamp(36px,4vw,68px);
+      line-height:1;
+      margin:0;
+    }
+
+    .lead{
+      font-size:clamp(18px,2vw,24px);
+      line-height:1.45;
+      color:var(--muted);
+      max-width:590px;
+      margin-bottom:42px;
+    }
+
+    .text-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      color:var(--text);
+      font-size:17px;
+      padding-bottom:8px;
+      border-bottom:1px solid var(--gold);
+      transition:.35s ease;
+    }
+
+    .text-cta:hover{
+      color:var(--gold);
+      transform:translateX(4px);
+    }
+
+    .video-card{
+      position:relative;
+      z-index:2;
+      border:1px solid var(--line);
+      border-radius:28px;
+      min-height:650px;
+      overflow:hidden;
+      background-image:url('assets/Tirana.jpg');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      box-shadow:0 40px 120px rgba(0,0,0,.45);
+    }
+
+    .video-card video{
+      width:100%;
+      height:100%;
+      min-height:650px;
+      object-fit:cover;
+      object-position:center center;
+      display:block;
+      filter:brightness(.72) contrast(1.08);
+      transform:scale(1.08);
+      transform-origin:center center;
+    }
+
+
+    .sound-btn{
+      position:absolute;
+      left:50%;
+      bottom:30px;
+      transform:translateX(-50%);
+      z-index:3;
+      border:1px solid rgba(200,166,103,.55);
+      border-radius:999px;
+      padding:15px 24px;
+      background:rgba(0,0,0,.48);
+      color:var(--text);
+      backdrop-filter:blur(14px);
+      font-size:13px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:.35s ease;
+      white-space:nowrap;
+    }
+
+    .sound-btn:hover{
+      background:rgba(200,166,103,.16);
+      color:var(--gold);
+      transform:translateX(-50%) scale(1.03);
+    }
+
+    .play-note{
+      position:absolute;
+      left:30px;
+      bottom:30px;
+      color:var(--text);
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      background:rgba(0,0,0,.36);
+      border:1px solid rgba(245,240,232,.18);
+      border-radius:999px;
+      padding:13px 18px;
+      backdrop-filter:blur(12px);
+    }
+
+    section{padding:110px 5vw}
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:40px;
+      margin-bottom:44px;
+    }
+
+    .section-desc{
+      color:var(--muted);
+      max-width:520px;
+      line-height:1.6;
+      font-size:16px;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .project{
+      min-height:460px;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      position:relative;
+      background-size:cover;
+      background-position:center;
+      transition:transform .65s ease, border-color .65s ease, filter .65s ease;
+    }
+
+    .project:hover{
+      transform:scale(1.025);
+      border-color:rgba(200,166,103,.35);
+      filter:brightness(1.08);
+    }
+
+    .project:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.82),transparent 62%);
+    }
+
+    .project-badge{
+      position:absolute;
+      z-index:2;
+      top:20px;
+      left:20px;
+      background:rgba(200,166,103,.72);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:5px;
+      padding:8px 12px;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .project-name{
+      position:absolute;
+      z-index:2;
+      left:26px;
+      bottom:24px;
+    }
+
+    .project-name strong{
+      display:block;
+      font-family:Georgia,serif;
+      font-size:30px;
+      font-weight:400;
+    }
+
+    .project-name small{
+      color:var(--gold);
+    }
+
+    .brand{
+      background:var(--bg-soft);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:50px;
+    }
+
+    .feature{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:34px 26px;
+      min-height:190px;
+      transition:.45s ease;
+    }
+
+    .feature:hover{
+      border-color:rgba(200,166,103,.35);
+      background:rgba(255,255,255,.025);
+    }
+
+    .feature b{
+      display:block;
+      color:var(--gold);
+      font-size:34px;
+      margin-bottom:18px;
+      font-family:Georgia,serif;
+      font-weight:400;
+    }
+
+    .feature p{
+      color:var(--muted);
+      line-height:1.55;
+      margin:0;
+    }
+
+    .process{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .process-text{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:42px;
+      background:rgba(255,255,255,.025);
+    }
+
+    .process-grid{
+      display:block;
+      width:100%;
+    }
+
+    .process-grid img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 30px 80px rgba(0,0,0,.35);
+    }
+
+    .form-wrap{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:70px;
+      align-items:start;
+    }
+
+    form{
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:34px;
+      background:rgba(255,255,255,.025);
+    }
+
+    label{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      margin:0 0 8px;
+    }
+
+    input,select,textarea{
+      width:100%;
+      background:transparent;
+      border:none;
+      border-bottom:1px solid rgba(245,240,232,.28);
+      padding:14px 0 16px;
+      color:var(--text);
+      font-size:17px;
+      outline:none;
+      margin-bottom:24px;
+      font-family:inherit;
+    }
+
+    textarea{
+      min-height:105px;
+      resize:vertical;
+    }
+
+    select option{color:#111}
+
+    button{
+      background:transparent;
+      border:none;
+      color:var(--text);
+      font-size:17px;
+      padding:0 0 8px;
+      border-bottom:1px solid var(--gold);
+      cursor:pointer;
+      margin-top:10px;
+      transition:.35s ease;
+    }
+
+    button:hover{
+      color:var(--gold);
+      transform:translateX(4px);
+    }
+
+    .consent-row{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      margin:4px 0 20px;
+    }
+
+    .consent-row input{
+      width:18px;
+      height:18px;
+      margin:1px 0 0;
+      accent-color:var(--gold);
+      flex:0 0 auto;
+    }
+
+    .consent-row a,
+    .form-note a{
+      color:var(--gold);
+      border-bottom:1px solid rgba(200,166,103,.55);
+    }
+
+    .form-note{
+      margin-top:22px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .form-error{
+      margin-top:22px;
+      border:1px solid rgba(255,120,90,.45);
+      border-radius:14px;
+      padding:16px 18px;
+      color:#ffb49f;
+      font-size:15px;
+      line-height:1.4;
+      display:none;
+    }
+
+    .expert-box{
+      margin-top:40px;
+      padding:28px;
+      border:1px solid rgba(200,166,103,.25);
+      border-radius:22px;
+      background:rgba(255,255,255,.02);
+    }
+
+    .expert-box h3{
+      font-family:Georgia,serif;
+      font-size:32px;
+      font-weight:400;
+      margin:0 0 20px;
+    }
+
+    .expert-phone{
+      display:inline-block;
+      color:var(--gold);
+      font-size:24px;
+      margin-bottom:16px;
+      border-bottom:1px solid rgba(200,166,103,.45);
+    }
+
+    .expert-box p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    .trust{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      padding:0 5vw 70px;
+    }
+
+    .trust div{
+      border-top:1px solid var(--line);
+      padding-top:24px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .trust strong{
+      display:block;
+      color:var(--text);
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:13px;
+    }
+
+    .success-overlay{
+      position:fixed;
+      inset:0;
+      z-index:999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,.82);
+      backdrop-filter:blur(10px);
+      padding:24px;
+    }
+
+    .success-card{
+      width:min(680px,100%);
+      border:1px solid rgba(200,166,103,.35);
+      border-radius:32px;
+      background:linear-gradient(145deg,#111,#070707);
+      box-shadow:0 40px 120px rgba(0,0,0,.65);
+      padding:58px 42px;
+      text-align:center;
+    }
+
+    .success-icon{
+      width:112px;
+      height:112px;
+      border:1px solid rgba(200,166,103,.55);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto 28px;
+      color:var(--gold);
+      font-size:54px;
+      font-family:Georgia,serif;
+    }
+
+    .success-card h3{
+      font-family:Georgia,serif;
+      font-weight:400;
+      font-size:clamp(44px,5vw,72px);
+      margin:0 0 18px;
+    }
+
+    .success-card p{
+      color:var(--muted);
+      font-size:20px;
+      line-height:1.55;
+      margin:0 0 32px;
+    }
+
+    .models-btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      background:var(--gold);
+      color:#111;
+      padding:18px 28px;
+      border-radius:8px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .close-success{
+      display:block;
+      margin:22px auto 0;
+      color:var(--muted);
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    .sticky-mobile{display:none}
+
+    footer{
+      padding:46px 5vw;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    footer a{
+      color:var(--gold);
+    }
+
+    @media(max-width:1100px){
+      .projects,.features{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:900px){
+      .nav{
+        padding:18px 5vw;
+      }
+
+      .nav-links,.nav-actions{display:none}
+
+      .hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding-top:108px;
+        padding-bottom:54px;
+        gap:34px;
+      }
+
+      .lead{
+        margin-bottom:30px;
+      }
+
+      .video-card,.video-card video{
+        min-height:420px;
+        border-radius:22px;
+      }
+
+      .projects,.features,.form-wrap,.process,.trust{
+        grid-template-columns:1fr;
+      }
+
+      section{padding:60px 5vw}
+
+      .section-head{display:block}
+
+      .section-desc{margin-top:20px}
+
+      .project{min-height:430px}
+
+      .process-text{padding:32px}
+
+      .process-grid img{
+        height:auto;
+        border-radius:22px;
+      }
+
+      footer{
+        padding-bottom:92px;
+        display:block;
+      }
+
+      .sticky-mobile{
+        display:flex;
+        position:fixed;
+        left:14px;
+        right:14px;
+        bottom:14px;
+        z-index:40;
+        justify-content:center;
+        padding:15px 18px;
+        border-radius:999px;
+        background:rgba(15,13,11,.86);
+        backdrop-filter:blur(16px);
+        border:1px solid rgba(200,166,103,.44);
+        color:var(--text);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <nav class="nav">
+      <div class="logo">ADEZO<small>EXCLUSIVE DOORS</small></div>
+
+      <div class="nav-links">
+        <a href="#realizacje">Modele</a>
+        <a href="#marka">Marka</a>
+        <a href="#proces">Proces</a>
+        <a href="#kontakt">Formularz</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="nav-phone" href="tel:+48882402271">+48 882 402 271</a>
+        <a href="tel:+48882402271" class="nav-cta">Zadzwoń</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Drzwi drewniane premium</div>
+
+        <h1>Tradycyjne i nowoczesne drzwi drewniane premium</h1>
+
+        <p class="lead">
+          Tworzymy drzwi drewniane premium dopasowane do architektury domu,
+          stylu inwestycji i emocji pierwszego wrażenia.
+        </p>
+
+        <a href="#kontakt" class="text-cta">Porozmawiaj z ekspertem →</a>
+      </div>
+
+      <div class="video-card" aria-label="Video ADEZO">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/Tirana.jpg" id="heroVideo">
+          <source src="assets/adezo-video-1.mp4" type="video/mp4">
+        </video>
+        <button class="sound-btn" id="soundBtn" type="button">
+          ▶ Poznaj historię ADEZO
+        </button>
+      </div>
+    </header>
+
+    <section id="realizacje">
+      <div class="section-head">
+        <h2>Nowoczesne i tradycyjne drzwi drewniane premium.</h2>
+
+        <p class="section-desc">
+          Wybrane modele ADEZO pokazujące dwa kierunki: nowoczesne drzwi drewniane premium
+          oraz tradycyjne drzwi drewniane premium dla eleganckich rezydencji.
+        </p>
+      </div>
+
+      <div class="projects">
+        <div class="project" style="background-image:url('assets/Tirana.jpg');">
+          <div class="project-badge">Nowoczesne</div>
+          <div class="project-name">
+            <strong>TIRANA</strong>
+            <small>minimal modern</small>
+          </div>
+        </div>
+
+        <div class="project" style="background-image:url('assets/Astana.jpg');">
+          <div class="project-badge">Nowoczesne</div>
+          <div class="project-name">
+            <strong>ASTANA</strong>
+            <small>architect line</small>
+          </div>
+        </div>
+
+        <div class="project" style="background-image:url('assets/Haga.jpg');">
+          <div class="project-badge">Tradycyjne</div>
+          <div class="project-name">
+            <strong>HAGA</strong>
+            <small>classic elegance</small>
+          </div>
+        </div>
+
+        <div class="project" style="background-image:url('assets/Oslo.jpg');">
+          <div class="project-badge">Tradycyjne</div>
+          <div class="project-name">
+            <strong>OSLO</strong>
+            <small>timeless wood</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand" id="marka">
+      <div class="section-head">
+        <h2>Doświadczenie. Technologia. Pasja.</h2>
+
+        <p class="section-desc">
+          ADEZO to drzwi drewniane premium: doświadczenie stolarskie, produkcja CNC,
+          montaż i indywidualny projekt pod konkretny dom.
+        </p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <b>30</b>
+          <p>lat doświadczenia w produkcji drzwi drewnianych premium.</p>
+        </div>
+
+        <div class="feature">
+          <b>CNC</b>
+          <p>precyzyjna produkcja i powtarzalność detalu.</p>
+        </div>
+
+        <div class="feature">
+          <b>100%</b>
+          <p>indywidualny projekt pod inwestycję i architekturę.</p>
+        </div>
+
+        <div class="feature">
+          <b>6–8</b>
+          <p>tygodni standardowego czasu realizacji projektu.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proces">
+      <div class="process">
+
+        <div class="process-text">
+          <div class="eyebrow">Proces tworzenia</div>
+
+          <h2>Drzwi drewniane premium ADEZO — od projektu do montażu.</h2>
+
+          <p class="section-desc">
+            Detal drewna, praca rzemieślnicza, technologia i montaż —
+            to właśnie buduje zaufanie do marki premium.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <img src="assets/proces-adezo-premium.png" alt="Proces tworzenia ADEZO">
+        </div>
+
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="form-wrap">
+
+        <div>
+          <div class="eyebrow">Wyślij formularz</div>
+
+          <h2>Wyślij formularz i porozmawiaj z ekspertem.</h2>
+
+          <p class="lead">
+            Zostaw kontakt. Ekspert ADEZO pomoże dobrać styl, drewniane materiały
+            i kierunek projektu drzwi drewnianych premium.
+          </p>
+
+          <div class="expert-box">
+            <h3>Porozmawiaj z ekspertem ADEZO</h3>
+
+            <a href="tel:+48882402271" class="expert-phone">
+              📞 +48 882 402 271
+            </a>
+
+            <p>Oddzwaniamy do 15 minut w godzinach pracy.</p>
+          </div>
+        </div>
+
+        <form id="adezoForm">
+          <input type="hidden" name="_subject" value="Nowy lead ADEZO">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <label>Imię i nazwisko</label>
+          <input type="text" name="imie" placeholder="Jan Kowalski" required />
+
+          <label>Adres e-mail</label>
+          <input type="email" name="email" placeholder="adres@email.pl" required />
+
+          <label>Telefon</label>
+          <input type="tel" name="telefon" placeholder="+48 ___ ___ ___" required />
+
+          <label>Miasto inwestycji</label>
+          <input type="text" name="miasto" placeholder="np. Warszawa" />
+
+          <label>Etap budowy</label>
+          <select name="etap_budowy">
+            <option>Wybierz etap</option>
+            <option>Projekt domu</option>
+            <option>Stan surowy</option>
+            <option>Przed montażem</option>
+            <option>Wymiana drzwi</option>
+          </select>
+
+          <label>Budżet</label>
+          <select name="budzet">
+            <option>Wybierz budżet</option>
+            <option>15–20 tys. zł</option>
+            <option>20–30 tys. zł</option>
+            <option>30–50 tys. zł</option>
+            <option>50 tys. zł+</option>
+          </select>
+
+          <label>Wiadomość</label>
+          <textarea name="wiadomosc" placeholder="Napisz krótko, jakich drzwi szukasz."></textarea>
+
+          <label class="consent-row">
+            <input type="checkbox" id="privacyConsent" required>
+            <span>Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href="/polityka-prywatnosci">Polityką prywatności</a>.</span>
+          </label>
+
+          <button type="submit" id="submitBtn">Wyślij formularz →</button>
+
+          <div class="form-note">
+            Projekty ADEZO realizujemy indywidualnie. Orientacyjny budżet drzwi drewnianych premium: od 15 000 PLN.<br>
+            Odezwiemy się w ciągu 15 minut w godzinach pracy.<br>
+            <a href="/polityka-prywatnosci">Polityka prywatności</a>
+          </div>
+
+          <div class="form-error" id="formError">
+            Zaznacz zgodę na przetwarzanie danych.
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+    <div class="trust">
+      <div>
+        <strong>Polska produkcja i montaż</strong>
+        Tworzymy i montujemy w Polsce.
+      </div>
+
+      <div>
+        <strong>Gwarancja jakości</strong>
+        Pewność na lata i dopracowany detal.
+      </div>
+
+      <div>
+        <strong>Kompleksowa obsługa</strong>
+        Od projektu po montaż.
+      </div>
+    </div>
+
+    <footer>
+      <div>
+        <strong>ADEZO DOORS</strong><br>
+        m. Wielopole 131<br>33-311 Wielogłowy
+      </div>
+
+      <div>
+        <a href="tel:+48882402271">+48 882 402 271</a><br>
+        <a href="https://www.adezodoors.com">www.adezodoors.com</a>
+      </div>
+
+      <div>
+        <a href="/polityka-prywatnosci">Polityka prywatności</a><br>
+        <a href="https://adezodoors.com/pl/nasze-modele/">Nasze modele</a>
+      </div>
+    </footer>
+
+    <a class="sticky-mobile" href="tel:+48882402271">📞 Zadzwoń</a>
+
+  </div>
+
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <h3>Dziękujemy!</h3>
+      <p>
+        Formularz został wysłany.<br>
+        Ekspert ADEZO oddzwoni do 15 minut.
+      </p>
+      <a class="models-btn" href="https://adezodoors.com/pl/nasze-modele/">
+        Zobacz nasze modele →
+      </a>
+      <button class="close-success" type="button" id="closeSuccess">Zamknij</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('adezoForm');
+    const overlay = document.getElementById('successOverlay');
+    const closeSuccess = document.getElementById('closeSuccess');
+    const formError = document.getElementById('formError');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      formError.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        await fetch('https://formsubmit.co/ajax/info@adezo.pl', {
+          method: 'POST',
+          body: formData
+        });
+
+        overlay.style.display = 'flex';
+        form.reset();
+
+      } catch (error) {
+        formError.textContent = 'Wystąpił problem z wysłaniem formularza. Spróbuj ponownie lub zadzwoń: +48 882 402 271.';
+        formError.style.display = 'block';
+      }
+    });
+
+    closeSuccess.addEventListener('click', function() {
+      overlay.style.display = 'none';
+    });
+  
+    const heroVideo = document.getElementById('heroVideo');
+    const soundBtn = document.getElementById('soundBtn');
+
+    if (heroVideo && soundBtn) {
+      soundBtn.addEventListener('click', async function() {
+        try {
+          heroVideo.muted = false;
+          heroVideo.currentTime = 0;
+          await heroVideo.play();
+          soundBtn.style.display = 'none';
+        } catch (error) {
+          heroVideo.controls = true;
+        }
+      });
+    }
+
+  </script>
+</body>
+</html>
